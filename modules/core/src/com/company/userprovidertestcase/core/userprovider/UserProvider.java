@@ -25,7 +25,7 @@ public class UserProvider implements UserListProvider {
     public List<User> get(String executionId) {
         List<ExecutionData> list = bprocRuntimeService.createExecutionDataQuery().executionId(executionId).list();
         if (list.size() == 0) {
-            log.debug("ERROR: Execution not found, ID: " + executionId);
+            System.out.printf("ERROR: Execution with id %s is missing in BprocRuntimeService\n", executionId);
         }
         return new ArrayList<>();
     }
